@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>My Title</title>
+        <title>C98 - eight</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">2.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">3.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">4.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">4.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">4.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">5.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">6.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">7.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">8.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html"><strong aria-hidden="true">9.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">9.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html"><strong aria-hidden="true">9.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">9.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html" class="active"><strong aria-hidden="true">10.</strong> DataBase</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">2.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">3.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">4.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">4.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">4.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">5.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">6.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">7.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">8.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html"><strong aria-hidden="true">9.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">9.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html" class="active"><strong aria-hidden="true">9.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">9.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">10.</strong> DataBase</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,43 +134,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>参考
-https://blog.csdn.net/piaoranyuji/article/details/120653522</p>
-<h3 id="事务"><a class="header" href="#事务">事务</a></h3>
-<p>InnoDB事务</p>
+                        <p>指针</p>
+<pre><code class="language-c">const char* p;
+char const *p;
+char* const p;
+</code></pre>
+<p>const char *ptr;</p>
+<p>定义一个指向字符常量的指针，*ptr的值为const，不能修改</p>
+<p>char const *ptr;</p>
+<p>此种写法和const char *等价，大家可以自行实验验证。</p>
+<p>char * const ptr;</p>
+<p>定义一个指向字符的指针常数，即const指针，实验得知，不能修改ptr指针，但是可以修改该指针指向的内容。
+二维数组</p>
+<h3 id="内存相关"><a class="header" href="#内存相关">内存相关</a></h3>
 <ul>
-<li>原子性</li>
-<li>一致性</li>
-<li>隔离性</li>
-<li>持久性</li>
+<li>C++内存分区、</li>
+<li>堆和栈、默认大小  内存区域？new对象在哪？局部变量在哪？gc发生在哪？</li>
+<li>delete 后发生了什么</li>
+<li>堆内存重复释放</li>
 </ul>
-<p>事务并发可能导致的问题(也是事务隔离级别要解决的问题)</p>
-<ul>
-<li>脏读（Dirty Read）
-脏读指的是读到了其他事务未提交的数据，未提交意味着这些数据可能会回滚，也就是可能最终不会存到数据库中，也就是不存在的数据。读到了并一定最终存在的数据，这就是脏读。</li>
-<li>可重复读（Repeatable Read）
-可重复读指的是在一个事务内，最开始读到的数据和事务结束前的任意时刻读到的同一批数据都是一致的。通常针对数据更新（UPDATE）操作。</li>
-<li>不可重复读（Non-Repeatable Read）
-对比可重复读，不可重复读指的是在同一事务内，不同的时刻读到的同一批数据可能是不一样的，可能会受到其他事务的影响，比如其他事务改了这批数据并提交了。通常针对数据更新（UPDATE）操作。</li>
-<li>幻读（Phantom Read）
-幻读多是针对数据插入（INSERT）操作来说的。事务 A 按照一定条件进行数据读取， 期间事务 B 插入了相同搜索条件的新数据，事务 A 再次按照原先条件进行读取时，发现了事务 B 新插入的数据，称为幻读。详见官方文档：Phantom Rows。</li>
-</ul>
-<h3 id="隔离级别"><a class="header" href="#隔离级别">隔离级别</a></h3>
-<ul>
-<li>读未提交</li>
-<li>读已提交</li>
-<li>可重复读</li>
-<li>串行化</li>
-</ul>
-<p>读已提交和可重复读 实现原理
-https://blog.csdn.net/h2503652646/article/details/117152307</p>
+<h1 id="内存对齐的原因"><a class="header" href="#内存对齐的原因">内存对齐的原因</a></h1>
+<h3 id="1内存以字节为单位"><a class="header" href="#1内存以字节为单位">1.内存以<strong>字节为单位</strong>：</a></h3>
+<p>内存是以字节为单位存储，但是处理器并不会按照一个字节为单位去存取内存。处理器存取内存是块为单位，块的大小可以是2，4，8，16字节大小，这样的存取单位称为<strong>内存存取粒度</strong>。如果在64位的机器上，不论CPU是要读取第0个字节还是要读取第1个字节，在硬件上传输的信号都是一样的。因为它都会把地址0到地址7，这8个字节全部读到CPU，只是当我们是需要读取第0个字节时，丢掉后面7个字节，当我们是需要读取第1个字节，丢掉第1个和后面6个字节。所以对于计算机硬件来说，内存只能通过特定的对齐地址进行访问。</p>
+<h3 id="2内存存取效率"><a class="header" href="#2内存存取效率">2.<strong>内存存取效率：</strong></a></h3>
+<p>从内存存取效率方面考虑，内存对齐的情况下可以提升CPU存取内存的效率。比如有一个整型变量(4 字节)，现在有一块内存单元: 地址从 0~7。这个整型变量从 地址为 1 的位置开始占据了 1,2,3,4 这 4 个字节。 现在处理器需要读取这个整型变量。假设处理器是 4 字节 4 字节的读取，所以从 0 开始读读取 0,1,2,3发现并没有读完整这个变量,那么需要再读一次,读取 4,5,6,7。然后对两次读取的结果进行处理,提取出 1,2,3,4 地址的内容。需要<strong>两次</strong>访问内存，同时通过一些<strong>逻辑计算</strong>才能得到最终的结果。如果进行内存对齐，将这个整型变量放在从0开始的地址存放，那么CPU只需要一次内存读取，并且没有额外的逻辑计算。可见内存对齐之后存取的效率提升了1倍。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="gdb.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="net_program.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="gdb.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -178,8 +175,11 @@ https://blog.csdn.net/h2503652646/article/details/117152307</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="gdb.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="net_program.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="gdb.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

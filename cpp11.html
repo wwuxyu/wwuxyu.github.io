@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">2.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">3.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">4.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">4.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">4.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">5.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">6.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">7.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">8.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html" class="active"><strong aria-hidden="true">9.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">9.1.</strong> net program</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">10.</strong> DataBase</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">2.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">3.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">4.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">4.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">4.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">5.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">6.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">7.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">8.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html" class="active"><strong aria-hidden="true">9.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">9.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html"><strong aria-hidden="true">9.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">9.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">10.</strong> DataBase</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,10 +136,46 @@
                     <main>
                         <p>c++0x</p>
 <p>C++11新特性</p>
+<ol>
+<li>小特性：</li>
+</ol>
 <ul>
-<li>初始化列表</li>
-<li>右值引用、移动语义和完美转发。</li>
+<li>关键字decltype</li>
+<li>基于范围的for循环</li>
+<li>新增STL容器：
+<ul>
+<li>forward_list:单向链表，与list双向链表相比更简单和节省存储空间。</li>
+<li>unordered_map、set、multimap、multiset：都是哈希表实现</li>
 </ul>
+</li>
+<li>初始化列表</li>
+</ul>
+<ol start="2">
+<li>
+<p>！右值引用、移动语义和完美转发。</p>
+</li>
+<li>
+<p>class：新的类功能</p>
+<ol>
+<li>类内成员初始化</li>
+<li>新增特殊成员函数
+<ul>
+<li>默认构造函数</li>
+<li>复制构造函数</li>
+<li>复制赋值运算符</li>
+<li>析构函数</li>
+<li>移动构造函数(new)</li>
+<li>移动赋值运算符(new)</li>
+</ul>
+</li>
+<li>默认的方法和禁用的方法</li>
+<li>委托构造函数</li>
+</ol>
+</li>
+<li>
+<p>lambda函数</p>
+</li>
+</ol>
 <h3 id="右值引用"><a class="header" href="#右值引用">右值引用</a></h3>
 <ul>
 <li>左值：可以取地址</li>
@@ -171,6 +207,57 @@
 <li>{函数体}：在函数体内除了可以使用参数外，还能使用捕捉的变量。</li>
 </ul>
 <p>注意：在lambda表达式中，参数列表和返回值类型都可省略，而捕捉列表和函数体可以为空。所以最简单的lambda表达式为：[]{}，该表达式不能做任何事。</p>
+<h4 id="lambda和函数的区别为什么要有lambda"><a class="header" href="#lambda和函数的区别为什么要有lambda">lambda，和函数的区别，为什么要有lambda</a></h4>
+<h3 id="c11-四种类型转换函数"><a class="header" href="#c11-四种类型转换函数">C++11 四种类型转换函数</a></h3>
+<h3 id="c11-stdref-用法"><a class="header" href="#c11-stdref-用法">C++11 std::ref 用法</a></h3>
+<p>https://murphypei.github.io/blog/2019/04/cpp-std-ref</p>
+<h2 id="关键字"><a class="header" href="#关键字">关键字</a></h2>
+<h3 id="static"><a class="header" href="#static">static</a></h3>
+<p>static修饰变量
+两个用法
+我们知道在函数内部定义的变量，当程序执行到它的定义处时，编译器为它在栈上分配空间，函数在栈上分配的空间在此函数执行结束时会释放掉，这样就产生了一个问题: 如果想将函数中此变量的值保存至下一次调用时，如何实现？ 最容易想到的方法是定义为全局的变量，但定义一个全局变量有许多缺点，最明显的缺点是破坏了此变量的访问范围（使得在此函数中定义的变量，不仅仅只受此函数控制）。static 关键字则可以很好的解决这个问题。</p>
+<p>另外，在 C++ 中，需要一个数据对象为整个类而非某个对象服务,<strong>同时又力求不破坏类的封装性,即要求此成员隐藏在类的内部，对外不可见时</strong>，可将其定义为静态数据。</p>
+<p>使用static修饰函数内的局部变量可以延长其声明周期并且不破坏其访问权限范围，下次调用该函数时值还是上次的。</p>
+<p>同时，静态变量会自动初始化为0，但是我在函数内会声明多次怎么说？</p>
+<p>实例代码</p>
+<pre><code class="language-C++">int increase() {
+    static int cnt;
+    cnt ++;
+    std::cout &lt;&lt; &quot;current cnt &quot; &lt;&lt; cnt &lt;&lt; std::endl;
+}
+
+int main() {
+    increase();
+    increase();
+}
+// current cnt 1
+// current cnt 2
+
+/*
+static int cnt = 11;
+current cnt 12
+current cnt 13
+*/
+
+</code></pre>
+<p>由于可以声明多次，所以我也可以多次赋值，但只有第一次赋值成功。</p>
+<pre><code class="language-C++">// address 
+    static int d1 = 1;
+    static int d2 = 2;
+    static int t1, t2;
+    std::cout &lt;&lt; &amp;d1 &lt;&lt; &quot;, &quot; &lt;&lt; &amp;d2 &lt;&lt; &quot;, &quot; &lt;&lt; &amp;t1 &lt;&lt; &quot;, &quot; &lt;&lt; &amp;t2 &lt;&lt; std::endl;
+// 0x404008, 0x40400c, 0x408038, 0x40803c
+
+</code></pre>
+<p>地址</p>
+<p>静态函数能否调用非静态函数？如何调用？
+不能非静态函数要实例化哦</p>
+<h3 id="mutable"><a class="header" href="#mutable">mutable</a></h3>
+<p>https://liam.page/2017/05/25/the-mutable-keyword-in-Cxx/</p>
+<p>http://c.biancheng.net/cplus/class/</p>
+<h3 id="类的大小"><a class="header" href="#类的大小">类的大小</a></h3>
+<p>空类 sizeof为1，因为要区分空类，所以有一个字节存储类名？</p>
+<h2 id="模版编程"><a class="header" href="#模版编程">模版编程</a></h2>
 
                     </main>
 
