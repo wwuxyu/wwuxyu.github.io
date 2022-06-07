@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">2.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">3.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">4.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">4.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">4.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">5.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">6.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">7.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">8.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html"><strong aria-hidden="true">9.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">9.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html"><strong aria-hidden="true">9.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">9.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">10.</strong> DataBase</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">8.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">9.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html"><strong aria-hidden="true">10.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">10.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html"><strong aria-hidden="true">10.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">10.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">11.</strong> DataBase</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,6 +152,30 @@
 <li><a href="https://rust-lang.github.io/mdBook/">mdbook官方使用文档</a></li>
 <li><a href="course.rs">rust圣经</a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="操作系统"><a class="header" href="#操作系统">操作系统</a></h1>
+<h3 id="进程间通信"><a class="header" href="#进程间通信">进程间通信</a></h3>
+<p>进程间通信方式主要包括管道，系统IPC(消息队列，共享内存，信号量等），以及套接字socket。</p>
+<p>管道主要包括无名管道和命名管道，主要区别是管道可用于具有亲缘关系的父子进程间通信，命名管道除了具有管道所具有的功能外，它还允许无亲缘关系的进程间通信。</p>
+<ol>
+<li>1 普通管道PIPE</li>
+<li>半双工，即数据只能在一个方向上流动，具有固定的读端和写端。</li>
+</ol>
+<p>如果要进行双工通信，则需要建立两个通道。</p>
+<ol>
+<li>它只能用于具有亲缘关系的进程间通信(父子进程或兄弟进程)</li>
+<li>它可以看成是一种特殊的文件，可以使用普通的read、write等函数进行读写。但它不是普通的文件，它不属于其他任何文件系统，并且值存在于内存中。</li>
+</ol>
+<p>1.2 命名管道FIFO</p>
+<ol>
+<li>允许在无亲缘关系的进程间通信。</li>
+<li>FIFO有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统中。</li>
+</ol>
+<h3 id="红黑树"><a class="header" href="#红黑树">红黑树</a></h3>
+<p>（1）每个节点或者是黑色，或者是红色。</p>
+<p>（2）根节点是黑色。</p>
+<p>（3）每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]</p>
+<p>（4）如果一个节点是红色的，则它的子节点必须是黑色的。</p>
+<p>（5）从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。[这里指到叶子节点的路径]</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cpu虚拟化"><a class="header" href="#cpu虚拟化">CPU虚拟化</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="虚拟内存"><a class="header" href="#虚拟内存">虚拟内存</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="应用层"><a class="header" href="#应用层">应用层</a></h1>
