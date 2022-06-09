@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>套接字编程 - eight</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="../virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="../virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="../application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="../https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="../transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="../ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">eight</li><li class="chapter-item expanded "><a href="../c/cpp.html"><strong aria-hidden="true">8.</strong> C/C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../c/cpp11feature.html"><strong aria-hidden="true">8.1.</strong> C++11特性</a></li><li class="chapter-item expanded "><a href="../c/keyword.html"><strong aria-hidden="true">8.2.</strong> 关键字</a></li><li class="chapter-item expanded "><a href="../c/class_function.html"><strong aria-hidden="true">8.3.</strong> C++类函数</a></li><li class="chapter-item expanded "><a href="../c/socket.html" class="active"><strong aria-hidden="true">8.4.</strong> 套接字编程</a></li><li class="chapter-item expanded "><a href="../c/C98.html"><strong aria-hidden="true">8.5.</strong> C98</a></li><li class="chapter-item expanded "><a href="../c/gdb.html"><strong aria-hidden="true">8.6.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="../database.html"><strong aria-hidden="true">9.</strong> DataBase</a></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">10.</strong> Redis</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="../go/golang.html"><strong aria-hidden="true">11.</strong> Go</a></li><li class="chapter-item expanded "><a href="../rust.html"><strong aria-hidden="true">12.</strong> Rust</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">eight</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="new-program"><a class="header" href="#new-program">new program</a></h1>
+<p>[toc]</p>
+<h3 id="socket模型编程"><a class="header" href="#socket模型编程">Socket模型编程</a></h3>
+<h3 id="io多路复用"><a class="header" href="#io多路复用">I/O多路复用</a></h3>
+<blockquote>
+<p>复用是复用的进程，即多个请求复用一个进程</p>
+</blockquote>
+<p>我们熟悉的 select/poll/epoll 内核提供给用户态的多路复用系统调用，<strong>进程可以通过一个系统调用函数从内核中获取多个事件</strong>。</p>
+<p>select/poll/epoll 是如何获取网络事件的呢？在获取事件时，先把所有连接（文件描述符）传给内核，再由内核返回产生了事件的连接，然后在用户态中再处理这些连接对应的请求即可。</p>
+<h3 id="select的缺点"><a class="header" href="#select的缺点">select的缺点：</a></h3>
+<ol>
+<li>单个进程能够监视的文件描述符的数量存在最大限制，通常是1024，当然可以更改数量，但由于select采用轮询的方式扫描文件描述符，文件描述符数量越多，性能越差；(在linux内核头文件中，有这样的定义：#define __FD_SETSIZE    1024)</li>
+<li>内核 / 用户空间内存拷贝问题，select需要复制大量的句柄数据结构，产生巨大的开销；</li>
+<li>select返回的是含有整个句柄的数组，应用程序需要遍历整个数组才能发现哪些句柄发生了事件；</li>
+<li>select的触发方式是水平触发，应用程序如果没有完成对一个已经就绪的文件描述符进行IO操作，那么之后每次select调用还是会将这些文件描述符通知进程。</li>
+</ol>
+<p><strong>select</strong></p>
+<p>过程：select 实现多路复用的方式是，将已连接的 Socket 都放到一个<strong>文件描述符集合</strong>，然后调用 select 函数将文件描述符集合<strong>拷贝</strong>到内核里，让内核来检查是否有网络事件产生，检查的方式很粗暴，就是通过<strong>遍历</strong>文件描述符集合的方式，当检查到有事件产生后，将此 Socket 标记为可读或可写， 接着再把整个文件描述符集合<strong>拷贝</strong>回用户态里，然后用户态还需要再通过<strong>遍历</strong>的方法找到可读或可写的 Socket，然后再对其处理。</p>
+<p>缺点：</p>
+<ul>
+<li>需要进行 <strong>2 次「遍历」文件描述符集合</strong>，一次是在内核态里，一个次是在用户态里 ，而且还会发生 <strong>2 次「拷贝」文件描述符集合</strong>，先从用户空间传入内核空间，由内核修改后，再传出到用户空间中。</li>
+<li>select使用定长数组来表示文件描述符集合，所以其所支持的文件描述符的个数是有限制的，在 Linux 系统中，由内核中的 FD_SETSIZE 限制， 默认最大值为 <code>1024</code>，只能监听 0~1023 的文件描述符。</li>
+</ul>
+<p><strong>poll</strong></p>
+<p>poll 和 select 并没有太大的本质区别，<strong>都是使用「线性结构」存储进程关注的 Socket 集合，因此都需要遍历文件描述符集合来找到可读或可写的 Socket，时间复杂度为 O(n)，而且也需要在用户态与内核态之间拷贝文件描述符集合</strong>，这种方式随着并发数上来，性能的损耗会呈指数级增长。</p>
+<p>与select的区别：</p>
+<ul>
+<li>改用链表存储文件描述符，而不是定长数组，这样就没有最大文件描述符限制了。</li>
+</ul>
+<h5 id="epoll"><a class="header" href="#epoll">epoll</a></h5>
+<p>epoll 通过两个方面，很好解决了 select/poll 的问题。</p>
+<ul>
+<li>底层数据结构：红黑树</li>
+<li>文件描述符的传输方式：事件驱动机制</li>
+</ul>
+<p><em>第一点</em>，epoll 在内核里使用<strong>红黑树来跟踪进程所有待检测的文件描述字</strong>，把需要监控的 socket 通过 <code>epoll_ctl()</code> 函数加入内核中的红黑树里，红黑树是个高效的数据结构，增删查一般时间复杂度是 <code>O(logn)</code>，通过对这棵黑红树进行操作，这样就不需要像 select/poll 每次操作时都传入整个 socket 集合，只需要传入一个待检测的 socket，减少了内核和用户空间大量的数据拷贝和内存分配。</p>
+<p><em>第二点</em>， epoll 使用事件驱动的机制，内核里<strong>维护了一个链表来记录就绪事件</strong>，当某个 socket 有事件发生时，通过回调函数内核会将其加入到这个就绪事件列表中，当用户调用 <code>epoll_wait()</code> 函数时，只会返回有事件发生的文件描述符的个数，不需要像 select/poll 那样轮询扫描整个 socket 集合，大大提高了检测的效率。</p>
+<p><strong>事件触发模式</strong></p>
+<p>epoll 支持两种事件触发模式，分别是边缘触发（edge-triggered，ET）和水平触发（level-triggered，LT）。</p>
+<h3 id="高性能网络模式reactor和proactor"><a class="header" href="#高性能网络模式reactor和proactor">高性能网络模式：Reactor和Proactor</a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../c/class_function.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../c/C98.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../c/class_function.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../c/C98.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

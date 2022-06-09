@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Go - eight</title>
+        <title>C++类函数 - eight</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="../virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="../virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="../application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="../https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="../transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="../ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">eight</li><li class="chapter-item expanded "><a href="../c/cpp.html"><strong aria-hidden="true">8.</strong> C/C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../c/cpp11feature.html"><strong aria-hidden="true">8.1.</strong> C++11特性</a></li><li class="chapter-item expanded "><a href="../c/keyword.html"><strong aria-hidden="true">8.2.</strong> 关键字</a></li><li class="chapter-item expanded "><a href="../c/class_function.html"><strong aria-hidden="true">8.3.</strong> C++类函数</a></li><li class="chapter-item expanded "><a href="../c/socket.html"><strong aria-hidden="true">8.4.</strong> 套接字编程</a></li><li class="chapter-item expanded "><a href="../c/C98.html"><strong aria-hidden="true">8.5.</strong> C98</a></li><li class="chapter-item expanded "><a href="../c/gdb.html"><strong aria-hidden="true">8.6.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="../database.html"><strong aria-hidden="true">9.</strong> DataBase</a></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">10.</strong> Redis</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="../go/golang.html" class="active"><strong aria-hidden="true">11.</strong> Go</a></li><li class="chapter-item expanded "><a href="../rust.html"><strong aria-hidden="true">12.</strong> Rust</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="../virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="../virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="../application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="../https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="../transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="../ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">eight</li><li class="chapter-item expanded "><a href="../c/cpp.html"><strong aria-hidden="true">8.</strong> C/C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../c/cpp11feature.html"><strong aria-hidden="true">8.1.</strong> C++11特性</a></li><li class="chapter-item expanded "><a href="../c/keyword.html"><strong aria-hidden="true">8.2.</strong> 关键字</a></li><li class="chapter-item expanded "><a href="../c/class_function.html" class="active"><strong aria-hidden="true">8.3.</strong> C++类函数</a></li><li class="chapter-item expanded "><a href="../c/socket.html"><strong aria-hidden="true">8.4.</strong> 套接字编程</a></li><li class="chapter-item expanded "><a href="../c/C98.html"><strong aria-hidden="true">8.5.</strong> C98</a></li><li class="chapter-item expanded "><a href="../c/gdb.html"><strong aria-hidden="true">8.6.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="../database.html"><strong aria-hidden="true">9.</strong> DataBase</a></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">10.</strong> Redis</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="../go/golang.html"><strong aria-hidden="true">11.</strong> Go</a></li><li class="chapter-item expanded "><a href="../rust.html"><strong aria-hidden="true">12.</strong> Rust</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,17 +134,48 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>golang learn detial
-<a href="https://www.yuque.com/wwuxyu/go">MyGoNote</a></p>
+                        <h1 id="类的各种函数"><a class="header" href="#类的各种函数">类的各种函数</a></h1>
+<ul>
+<li>默认构造函数</li>
+<li>构造函数</li>
+<li>析构函数</li>
+<li>拷贝构造函数</li>
+</ul>
+<p>ref：https://www.cnblogs.com/wangguchangqing/p/6141743.html</p>
+<h3 id="拷贝构造函数"><a class="header" href="#拷贝构造函数">拷贝构造函数</a></h3>
+<p>和构造函数一样，没有返回值。</p>
+<p>默认拷贝构造函数是浅拷贝，如果想要深拷贝需要自己实现。</p>
+<h3 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h3>
+<p>拷贝构造函数和复制运算符的区别就是是否产生新的对象。</p>
+<h3 id="析构函数为什么一般声明为虚函数"><a class="header" href="#析构函数为什么一般声明为虚函数">析构函数为什么一般声明为虚函数？</a></h3>
+<p>为了防止内存泄漏。当基类指针指向</p>
+<h4 id="常成员函数"><a class="header" href="#常成员函数">常成员函数</a></h4>
+<pre><code class="language-C++">int get_data() const {return data;}
+</code></pre>
+<ul>
+<li>在常成员函数中不得修改类中的任何数据成员的值。</li>
+<li>当一个对象被声明为常对象，则不能通过该对象调用该类中的非const成员函数</li>
+</ul>
+<h3 id="虚函数"><a class="header" href="#虚函数">虚函数</a></h3>
+<h4 id="虚析构函数"><a class="header" href="#虚析构函数">虚析构函数</a></h4>
+<p>当派生类的对象被释放时，一般会先调用派生类的析构函数，再调用基类的析构函数。
+但是当基类指针指向派生类对象时，在释放该对象时，只会调用基类构造函数，而派生类的析构函数则不会被调用。
+从而导致派生类的资源没有正确的释放，可能会造成<strong>内存泄漏</strong>。</p>
+<h4 id="纯虚析构函数"><a class="header" href="#纯虚析构函数">纯虚析构函数？</a></h4>
+<pre><code class="language-C++">virtual ~CBase() = 0;   
+</code></pre>
+<p>这样实现的目的是什么呢？当然是<strong>避免实例化</strong>。</p>
+<p>但因为<strong>派生类不可能来实现基类的析构函数</strong>，所以<strong>基类析构函数虽然可以标为纯虚，但是仍必须实现析构函数，否则派生类无法继承，也无法编译通过</strong>。</p>
+<h3 id="虚函数及实现原理虚析构函数"><a class="header" href="#虚函数及实现原理虚析构函数">虚函数及实现原理、虚析构函数</a></h3>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../redis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../c/keyword.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../rust.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../c/socket.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -153,10 +184,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../redis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../c/keyword.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../rust.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../c/socket.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

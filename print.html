@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">8.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">9.</strong> Rust</a></li><li class="chapter-item expanded "><a href="cpp11.html"><strong aria-hidden="true">10.</strong> Cpp11</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="net_program.html"><strong aria-hidden="true">10.1.</strong> net program</a></li><li class="chapter-item expanded "><a href="C98.html"><strong aria-hidden="true">10.2.</strong> C98</a></li><li class="chapter-item expanded "><a href="gdb.html"><strong aria-hidden="true">10.3.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">11.</strong> DataBase</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="automatically_deploy.html"><strong aria-hidden="true">1.</strong> automatically deploy</a></li><li class="chapter-item expanded affix "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="operation.html"><strong aria-hidden="true">2.</strong> os</a></li><li class="chapter-item expanded "><a href="virtualization_cpu.html"><strong aria-hidden="true">3.</strong> CPU虚拟化：进程、线程和协程</a></li><li class="chapter-item expanded "><a href="virtual_memory.html"><strong aria-hidden="true">4.</strong> 虚拟内存</a></li><li class="chapter-item expanded affix "><li class="part-title">计算机网络</li><li class="chapter-item expanded "><a href="application_layer.html"><strong aria-hidden="true">5.</strong> 应用层</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="http.html"><strong aria-hidden="true">5.1.</strong> HTTP</a></li><li class="chapter-item expanded "><a href="https.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li></ol></li><li class="chapter-item expanded "><a href="transfer_layer.html"><strong aria-hidden="true">6.</strong> 传输层</a></li><li class="chapter-item expanded "><a href="ip_layer.html"><strong aria-hidden="true">7.</strong> 网络层及以下</a></li><li class="chapter-item expanded affix "><li class="part-title">eight</li><li class="chapter-item expanded "><a href="c/cpp.html"><strong aria-hidden="true">8.</strong> C/C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c/cpp11feature.html"><strong aria-hidden="true">8.1.</strong> C++11特性</a></li><li class="chapter-item expanded "><a href="c/keyword.html"><strong aria-hidden="true">8.2.</strong> 关键字</a></li><li class="chapter-item expanded "><a href="c/class_function.html"><strong aria-hidden="true">8.3.</strong> C++类函数</a></li><li class="chapter-item expanded "><a href="c/socket.html"><strong aria-hidden="true">8.4.</strong> 套接字编程</a></li><li class="chapter-item expanded "><a href="c/C98.html"><strong aria-hidden="true">8.5.</strong> C98</a></li><li class="chapter-item expanded "><a href="c/gdb.html"><strong aria-hidden="true">8.6.</strong> GDB</a></li></ol></li><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">9.</strong> DataBase</a></li><li class="chapter-item expanded "><a href="redis.html"><strong aria-hidden="true">10.</strong> Redis</a></li><li class="chapter-item expanded affix "><li class="part-title">语言学习</li><li class="chapter-item expanded "><a href="go/golang.html"><strong aria-hidden="true">11.</strong> Go</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">12.</strong> Rust</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -176,20 +176,39 @@
 <p>（3）每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]</p>
 <p>（4）如果一个节点是红色的，则它的子节点必须是黑色的。</p>
 <p>（5）从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。[这里指到叶子节点的路径]</p>
+<h3 id="虚拟内存"><a class="header" href="#虚拟内存">虚拟内存</a></h3>
+<p>虚存优点：</p>
+<p>（1）虚拟内存技术扩大了各自进程的地址空间</p>
+<p>（2）每个进程运行在各自的虚拟地址空间，互相不干扰对方。虚拟内存为特定的内存地址提供写保护。可以防止代码或数据被恶意篡改</p>
+<p>（3）公平分配内存，采用虚拟内存之后，每个进程相对于具有相同大小的虚存空间</p>
+<p>（4）进程通信，可以采用虚存共享的方式</p>
+<p>（5）不同进程使用相同代码时，只需要在物理内存上存一份，各自进程将其虚拟内存映射过去即可，比如库函数，头文件的调用等，可以节省物理内存空间</p>
+<p>（6）内存中可以保留多个进程，当一个进程等待在等待数据读入内存的过程中，可以将cpu资源交给另外一个进程使用，提高并发性（时间片轮转）</p>
+<p>（7）需要分配连续存储空间时，只需要在虚拟内存空间上分配连续空间，而不需要在实际物理内存上开辟同样连续的空间，可以组织物理内存上内存碎片使用，实现离散式存储</p>
+<p>虚存缺点：</p>
+<p>（1）虚拟内存的管理需要建立数据结构，数据结构需要额外内存空间</p>
+<p>（2）虚拟地址到物理地址的转换，增加了指令的执行时间</p>
+<p>（3）页面的换入换出需要通过磁盘IO来完成，增加耗时</p>
+<p>（4）如果页表中只有一部分数据，会浪费内存</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cpu虚拟化"><a class="header" href="#cpu虚拟化">CPU虚拟化</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="虚拟内存"><a class="header" href="#虚拟内存">虚拟内存</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="虚拟内存-1"><a class="header" href="#虚拟内存-1">虚拟内存</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="应用层"><a class="header" href="#应用层">应用层</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="http"><a class="header" href="#http">HTTP</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="https"><a class="header" href="#https">HTTPS</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="传输层"><a class="header" href="#传输层">传输层</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="网络层及以下"><a class="header" href="#网络层及以下">网络层及以下</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><p>golang learn detial
-<a href="https://www.yuque.com/wwuxyu/go">MyGoNote</a></p>
-<div style="break-before: page; page-break-before: always;"></div><p>some learning materials
-Rust语言圣经(Rust Course) https://course.rs
-Rust语言中文社区 https://rustcc.cn</p>
-<div style="break-before: page; page-break-before: always;"></div><p>c++0x</p>
-<p>C++11新特性</p>
+<div style="break-before: page; page-break-before: always;"></div><h3 id="类的大小"><a class="header" href="#类的大小">类的大小</a></h3>
+<p>空类 sizeof为1，因为要区分空类，所以有一个字节存储类名？</p>
+<h2 id="模版编程"><a class="header" href="#模版编程">模版编程</a></h2>
+<p>volatile作用？
+可见性，无法保证原子性
+volatile int a = 1;
+内存屏障？</p>
+<hr />
+<p>地址</p>
+<p>静态函数能否调用非静态函数？如何调用？
+不能非静态函数要实例化哦</p>
+<div style="break-before: page; page-break-before: always;"></div><p>C++11新特性</p>
 <ol>
 <li>小特性：</li>
 </ol>
@@ -263,9 +282,12 @@ Rust语言中文社区 https://rustcc.cn</p>
 <p>注意：在lambda表达式中，参数列表和返回值类型都可省略，而捕捉列表和函数体可以为空。所以最简单的lambda表达式为：[]{}，该表达式不能做任何事。</p>
 <h4 id="lambda和函数的区别为什么要有lambda"><a class="header" href="#lambda和函数的区别为什么要有lambda">lambda，和函数的区别，为什么要有lambda</a></h4>
 <h3 id="c11-四种类型转换函数"><a class="header" href="#c11-四种类型转换函数">C++11 四种类型转换函数</a></h3>
+<ol>
+<li>const_cast</li>
+</ol>
 <h3 id="c11-stdref-用法"><a class="header" href="#c11-stdref-用法">C++11 std::ref 用法</a></h3>
 <p>https://murphypei.github.io/blog/2019/04/cpp-std-ref</p>
-<h2 id="关键字"><a class="header" href="#关键字">关键字</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="关键字"><a class="header" href="#关键字">关键字</a></h2>
 <h3 id="static"><a class="header" href="#static">static</a></h3>
 <p>static修饰变量
 两个用法
@@ -303,15 +325,42 @@ current cnt 13
 // 0x404008, 0x40400c, 0x408038, 0x40803c
 
 </code></pre>
-<p>地址</p>
-<p>静态函数能否调用非静态函数？如何调用？
-不能非静态函数要实例化哦</p>
 <h3 id="mutable"><a class="header" href="#mutable">mutable</a></h3>
 <p>https://liam.page/2017/05/25/the-mutable-keyword-in-Cxx/</p>
 <p>http://c.biancheng.net/cplus/class/</p>
-<h3 id="类的大小"><a class="header" href="#类的大小">类的大小</a></h3>
-<p>空类 sizeof为1，因为要区分空类，所以有一个字节存储类名？</p>
-<h2 id="模版编程"><a class="header" href="#模版编程">模版编程</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="类的各种函数"><a class="header" href="#类的各种函数">类的各种函数</a></h1>
+<ul>
+<li>默认构造函数</li>
+<li>构造函数</li>
+<li>析构函数</li>
+<li>拷贝构造函数</li>
+</ul>
+<p>ref：https://www.cnblogs.com/wangguchangqing/p/6141743.html</p>
+<h3 id="拷贝构造函数"><a class="header" href="#拷贝构造函数">拷贝构造函数</a></h3>
+<p>和构造函数一样，没有返回值。</p>
+<p>默认拷贝构造函数是浅拷贝，如果想要深拷贝需要自己实现。</p>
+<h3 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h3>
+<p>拷贝构造函数和复制运算符的区别就是是否产生新的对象。</p>
+<h3 id="析构函数为什么一般声明为虚函数"><a class="header" href="#析构函数为什么一般声明为虚函数">析构函数为什么一般声明为虚函数？</a></h3>
+<p>为了防止内存泄漏。当基类指针指向</p>
+<h4 id="常成员函数"><a class="header" href="#常成员函数">常成员函数</a></h4>
+<pre><code class="language-C++">int get_data() const {return data;}
+</code></pre>
+<ul>
+<li>在常成员函数中不得修改类中的任何数据成员的值。</li>
+<li>当一个对象被声明为常对象，则不能通过该对象调用该类中的非const成员函数</li>
+</ul>
+<h3 id="虚函数"><a class="header" href="#虚函数">虚函数</a></h3>
+<h4 id="虚析构函数"><a class="header" href="#虚析构函数">虚析构函数</a></h4>
+<p>当派生类的对象被释放时，一般会先调用派生类的析构函数，再调用基类的析构函数。
+但是当基类指针指向派生类对象时，在释放该对象时，只会调用基类构造函数，而派生类的析构函数则不会被调用。
+从而导致派生类的资源没有正确的释放，可能会造成<strong>内存泄漏</strong>。</p>
+<h4 id="纯虚析构函数"><a class="header" href="#纯虚析构函数">纯虚析构函数？</a></h4>
+<pre><code class="language-C++">virtual ~CBase() = 0;   
+</code></pre>
+<p>这样实现的目的是什么呢？当然是<strong>避免实例化</strong>。</p>
+<p>但因为<strong>派生类不可能来实现基类的析构函数</strong>，所以<strong>基类析构函数虽然可以标为纯虚，但是仍必须实现析构函数，否则派生类无法继承，也无法编译通过</strong>。</p>
+<h3 id="虚函数及实现原理虚析构函数"><a class="header" href="#虚函数及实现原理虚析构函数">虚函数及实现原理、虚析构函数</a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="new-program"><a class="header" href="#new-program">new program</a></h1>
 <p>[toc]</p>
 <h3 id="socket模型编程"><a class="header" href="#socket模型编程">Socket模型编程</a></h3>
@@ -321,6 +370,13 @@ current cnt 13
 </blockquote>
 <p>我们熟悉的 select/poll/epoll 内核提供给用户态的多路复用系统调用，<strong>进程可以通过一个系统调用函数从内核中获取多个事件</strong>。</p>
 <p>select/poll/epoll 是如何获取网络事件的呢？在获取事件时，先把所有连接（文件描述符）传给内核，再由内核返回产生了事件的连接，然后在用户态中再处理这些连接对应的请求即可。</p>
+<h3 id="select的缺点"><a class="header" href="#select的缺点">select的缺点：</a></h3>
+<ol>
+<li>单个进程能够监视的文件描述符的数量存在最大限制，通常是1024，当然可以更改数量，但由于select采用轮询的方式扫描文件描述符，文件描述符数量越多，性能越差；(在linux内核头文件中，有这样的定义：#define __FD_SETSIZE    1024)</li>
+<li>内核 / 用户空间内存拷贝问题，select需要复制大量的句柄数据结构，产生巨大的开销；</li>
+<li>select返回的是含有整个句柄的数组，应用程序需要遍历整个数组才能发现哪些句柄发生了事件；</li>
+<li>select的触发方式是水平触发，应用程序如果没有完成对一个已经就绪的文件描述符进行IO操作，那么之后每次select调用还是会将这些文件描述符通知进程。</li>
+</ol>
 <p><strong>select</strong></p>
 <p>过程：select 实现多路复用的方式是，将已连接的 Socket 都放到一个<strong>文件描述符集合</strong>，然后调用 select 函数将文件描述符集合<strong>拷贝</strong>到内核里，让内核来检查是否有网络事件产生，检查的方式很粗暴，就是通过<strong>遍历</strong>文件描述符集合的方式，当检查到有事件产生后，将此 Socket 标记为可读或可写， 接着再把整个文件描述符集合<strong>拷贝</strong>回用户态里，然后用户态还需要再通过<strong>遍历</strong>的方法找到可读或可写的 Socket，然后再对其处理。</p>
 <p>缺点：</p>
@@ -345,18 +401,39 @@ current cnt 13
 <p><strong>事件触发模式</strong></p>
 <p>epoll 支持两种事件触发模式，分别是边缘触发（edge-triggered，ET）和水平触发（level-triggered，LT）。</p>
 <h3 id="高性能网络模式reactor和proactor"><a class="header" href="#高性能网络模式reactor和proactor">高性能网络模式：Reactor和Proactor</a></h3>
-<div style="break-before: page; page-break-before: always;"></div><p>指针</p>
-<pre><code class="language-c">const char* p;
+<div style="break-before: page; page-break-before: always;"></div><h3 id="静态库和动态库"><a class="header" href="#静态库和动态库">静态库和动态库</a></h3>
+<h4 id="什么是库文件"><a class="header" href="#什么是库文件">什么是库文件？</a></h4>
+<p>库文件是计算机上的一类文件，可以简单的把库文件看成一种代码仓库，它提供给使用者一些可以直接拿来用的变量、函数和类。</p>
+<p>库是一种特殊的程序，编写库和编写一般的程序区别不大，只是库不能单独运行。</p>
+<p>库文件分两种：静态库和动态库(共享库)。
+区别是：静态库在程序链接阶段被复制到程序中；动态库则是在运行时由系统动态加载到内存中供程序调用(不论几个进程调用，只需要加载一份进内存即可)。</p>
+<p>库的优点：1. 代码保密；2.方便部署和分发(将多个文件整合进一个库中)。</p>
+<p><strong>静态库的制作</strong>
+命名规则：</p>
+<ul>
+<li>linux：libxxx.a
+<ul>
+<li>lib：前缀(固定)</li>
+<li>xxx：库的名字，自定义</li>
+<li>.a：后缀(固定)</li>
+</ul>
+</li>
+<li>windows：libxxx.lib</li>
+</ul>
+<h3 id="指针和二维数组"><a class="header" href="#指针和二维数组">指针和二维数组</a></h3>
+<pre><code class="language-c">
+// 定义一个指向字符常量的指针，*ptr的值为const，不能修改
+const char* p;   
+
+// 此种写法和const char *等价，大家可以自行实验验证。
 char const *p;
+
+// 定义一个指向字符的指针常数，即const指针，
+// 实验得知，不能修改ptr指针，
+// 但是可以修改该指针指向的内容。
 char* const p;
 </code></pre>
-<p>const char *ptr;</p>
-<p>定义一个指向字符常量的指针，*ptr的值为const，不能修改</p>
-<p>char const *ptr;</p>
-<p>此种写法和const char *等价，大家可以自行实验验证。</p>
-<p>char * const ptr;</p>
-<p>定义一个指向字符的指针常数，即const指针，实验得知，不能修改ptr指针，但是可以修改该指针指向的内容。
-二维数组</p>
+<p><strong>二维数组</strong> </p>
 <h3 id="内存相关"><a class="header" href="#内存相关">内存相关</a></h3>
 <ul>
 <li>C++内存分区、</li>
@@ -364,10 +441,10 @@ char* const p;
 <li>delete 后发生了什么</li>
 <li>堆内存重复释放</li>
 </ul>
-<h1 id="内存对齐的原因"><a class="header" href="#内存对齐的原因">内存对齐的原因</a></h1>
-<h3 id="1内存以字节为单位"><a class="header" href="#1内存以字节为单位">1.内存以<strong>字节为单位</strong>：</a></h3>
+<h3 id="内存对齐的原因"><a class="header" href="#内存对齐的原因">内存对齐的原因</a></h3>
+<p>1.内存以<strong>字节为单位</strong>：</p>
 <p>内存是以字节为单位存储，但是处理器并不会按照一个字节为单位去存取内存。处理器存取内存是块为单位，块的大小可以是2，4，8，16字节大小，这样的存取单位称为<strong>内存存取粒度</strong>。如果在64位的机器上，不论CPU是要读取第0个字节还是要读取第1个字节，在硬件上传输的信号都是一样的。因为它都会把地址0到地址7，这8个字节全部读到CPU，只是当我们是需要读取第0个字节时，丢掉后面7个字节，当我们是需要读取第1个字节，丢掉第1个和后面6个字节。所以对于计算机硬件来说，内存只能通过特定的对齐地址进行访问。</p>
-<h3 id="2内存存取效率"><a class="header" href="#2内存存取效率">2.<strong>内存存取效率：</strong></a></h3>
+<p>2.<strong>内存存取效率：</strong></p>
 <p>从内存存取效率方面考虑，内存对齐的情况下可以提升CPU存取内存的效率。比如有一个整型变量(4 字节)，现在有一块内存单元: 地址从 0~7。这个整型变量从 地址为 1 的位置开始占据了 1,2,3,4 这 4 个字节。 现在处理器需要读取这个整型变量。假设处理器是 4 字节 4 字节的读取，所以从 0 开始读读取 0,1,2,3发现并没有读完整这个变量,那么需要再读一次,读取 4,5,6,7。然后对两次读取的结果进行处理,提取出 1,2,3,4 地址的内容。需要<strong>两次</strong>访问内存，同时通过一些<strong>逻辑计算</strong>才能得到最终的结果。如果进行内存对齐，将这个整型变量放在从0开始的地址存放，那么CPU只需要一次内存读取，并且没有额外的逻辑计算。可见内存对齐之后存取的效率提升了1倍。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gdb"><a class="header" href="#gdb">GDB</a></h1>
 <h3 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h3>
@@ -461,6 +538,8 @@ until            # 跳出循环
 
   
 </code></pre>
+<p>多线程调试命令 https://blog.csdn.net/jusu10/article/details/117991497</p>
+<p>内存泄漏工具</p>
 <div style="break-before: page; page-break-before: always;"></div><p>参考
 https://blog.csdn.net/piaoranyuji/article/details/120653522</p>
 <h3 id="事务"><a class="header" href="#事务">事务</a></h3>
@@ -491,6 +570,40 @@ https://blog.csdn.net/piaoranyuji/article/details/120653522</p>
 </ul>
 <p>读已提交和可重复读 实现原理
 https://blog.csdn.net/h2503652646/article/details/117152307</p>
+<h4 id="事务隔离级别"><a class="header" href="#事务隔离级别">事务隔离级别</a></h4>
+<p><a href="https://www.jianshu.com/p/fb312164f03d">https://www.jianshu.com/p/fb312164f03d</a></p>
+<p>区分事务隔离级别是为了解决脏读、不可重复读和幻读三个问题的。</p>
+<table><thead><tr><th>事务隔离级别</th><th>回滚覆盖</th><th>脏读</th><th>不可重复读</th><th>提交覆盖</th><th>幻读</th></tr></thead><tbody>
+<tr><td>读未提交</td><td>x</td><td>可能发生</td><td>可能发生</td><td>可能发生</td><td>可能发生</td></tr>
+<tr><td>读已提交</td><td>x</td><td>x</td><td>可能发生</td><td>可能发生</td><td>可能发生</td></tr>
+<tr><td>可重复读</td><td>x</td><td>x</td><td>x</td><td>x</td><td>可能发生</td></tr>
+<tr><td>串行化</td><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td></tr>
+</tbody></table>
+<p>MySQL innodb
+事务的隔离级别？
+幻读？
+next-key lock？
+锁？表锁？意向锁？
+Intention Locks</p>
+<h3 id="查询优化"><a class="header" href="#查询优化">查询优化</a></h3>
+<p>联合索引</p>
+<h3 id="索引"><a class="header" href="#索引">索引</a></h3>
+<p>索引结构</p>
+<p>B+树，为什么使用B+树</p>
+<p>如何创建索引</p>
+<p>为什么有的索引并不快？重复值太多了</p>
+<h3 id="事务-1"><a class="header" href="#事务-1">事务</a></h3>
+<p>mvcc如何解决幻读</p>
+<ul>
+<li>雪花算法 <a href="https://www.jianshu.com/p/2a27fbd9e71a">https://www.jianshu.com/p/2a27fbd9e71a</a></li>
+<li>分库分表后全局唯一id问题 <a href="https://blog.csdn.net/cwl_0514/article/details/105805526">https://blog.csdn.net/cwl_0514/article/details/105805526</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="redis"><a class="header" href="#redis">Redis</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><p>golang learn detial
+<a href="https://www.yuque.com/wwuxyu/go">MyGoNote</a></p>
+<div style="break-before: page; page-break-before: always;"></div><p>some learning materials
+Rust语言圣经(Rust Course) https://course.rs
+Rust语言中文社区 https://rustcc.cn</p>
 
                     </main>
 
