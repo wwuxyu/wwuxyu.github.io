@@ -156,6 +156,67 @@
         }
 
 </code></pre>
+<h4 id="209-长度最小的子数组"><a class="header" href="#209-长度最小的子数组">209. 长度最小的子数组</a></h4>
+<p>看错题了，题目要求大于等于即可。一开始写成等于
+两种解法</p>
+<ul>
+<li>O(n)，双指针</li>
+<li>O(nlogn)，二分答案。</li>
+</ul>
+<pre><code class="language-c++">class Solution {
+public:
+    int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) {
+        int l = 0, r = 0, sum = nums[r], ans = INT_MAX;
+        while (r &lt; nums.size()) {
+            if (sum &lt; target) {
+                r++;
+                if (r &lt; nums.size())
+                    sum += nums[r];
+            }
+            else {
+                ans = min(ans, r-l+1);
+                sum -= nums[l];
+                l++;
+            }
+        }
+        return ans == INT_MAX ? 0 : ans;
+    }
+};
+
+// 二分法
+class Solution {
+public:
+    bool check(int d, vector&lt;int&gt;&amp; nums, int target) {
+        int sum = 0;
+        for (int i=0;i&lt;d;i++) {
+            sum += nums[i];
+        }
+        if (sum &gt;= target) return true;
+        for (int i=d;i&lt;nums.size();i++) {
+            sum = sum - nums[i-d] + nums[i];
+            if (sum &gt;= target) return true;
+        }
+        return false;
+    }
+    int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) {
+        int l = 0, r = nums.size(), mid;
+        while (l &lt; r) {
+            mid = (l+r) / 2;
+            if (check(mid, nums, target)) {
+                r = mid;
+            }
+            else {
+                l = mid + 1;
+            }
+        }
+        int n = nums.size();
+        if (l != n || (l == r &amp;&amp; accumulate(nums.begin(), nums.end(), 0) &gt;= target)) {
+            return l;
+        }
+        return 0;
+    }
+};
+</code></pre>
 
                     </main>
 

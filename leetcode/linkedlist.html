@@ -138,10 +138,94 @@
 <ul>
 <li>
 <ol start="82">
-<li>删除排序链表中的重复元素 II</li>
+<li>删除排序链表中的重复元素II
+两点 next也不能为空，pre不着急赋值。</li>
+</ol>
+</li>
+<li>
+<ol start="83">
+<li>删除排序链表中的重复元素</li>
+</ol>
+</li>
+<li>
+<ol start="328">
+<li>奇偶链表 (两个奇偶头即可)</li>
 </ol>
 </li>
 </ul>
+<p>LRU</p>
+<pre><code class="language-c++">class LRUCache {
+private:
+    struct ListNode {
+        int val;
+        int key; //!!!!forget
+        ListNode *pre, *next;
+        ListNode() : val(0), key(0), pre(nullptr), next(nullptr){}
+        ListNode(int _k, int _v):val(_v), key(_k), pre(nullptr), next(nullptr){}
+    };
+    unordered_map&lt;int, ListNode*&gt; mp;
+    ListNode *head, *tail;
+    int size, capacity;
+
+public:
+    LRUCache(int _capacity) : capacity(_capacity), size(0) {
+        head = new ListNode();
+        tail = new ListNode();
+        head-&gt;next = tail;
+        tail-&gt;pre = head;
+    }
+    
+    int get(int key) {
+        if (mp.count(key)) {
+            remove_node(mp[key]);
+            add_to_head(mp[key]);
+            return mp[key]-&gt;val;
+        }
+        return -1;
+    }
+    
+    void put(int key, int value) {
+        if (mp.count(key)) {
+            mp[key]-&gt;val = value;
+            remove_node(mp[key]);
+            add_to_head(mp[key]);
+        }
+        else {
+            ListNode* p = new ListNode(key, value);
+            mp[key] = p;
+            add_to_head(mp[key]);
+            size++;
+            if (size &gt; capacity) { //删除最久未使用，即链表尾部元素。
+                ListNode* tmp = remove_tail();
+                mp.erase(tmp-&gt;key);
+                size--;
+                delete tmp;
+            }
+        }
+    }
+    void add_to_head(ListNode* node) {
+        node-&gt;pre = head;
+        node-&gt;next = head-&gt;next;
+        head-&gt;next-&gt;pre = node; //forget
+        head-&gt;next = node;
+    }
+    void remove_node(ListNode* node) {
+        node-&gt;pre-&gt;next = node-&gt;next;
+        node-&gt;next-&gt;pre = node-&gt;pre;
+    }
+    void move_to_head(ListNode* node) {
+        remove_node(node);
+        add_to_head(node);
+    }
+    ListNode* remove_tail() {
+        ListNode* tmp = tail-&gt;pre;
+        remove_node(tmp);
+        return tmp;
+    }
+
+};
+
+</code></pre>
 
                     </main>
 

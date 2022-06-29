@@ -922,11 +922,22 @@ int main() {
 <div style="break-before: page; page-break-before: always;"></div><p>raft </p>
 <div style="break-before: page; page-break-before: always;"></div><p>golang learn detial
 <a href="https://www.yuque.com/wwuxyu/go">MyGoNote</a></p>
+<h3 id="项目初始化"><a class="header" href="#项目初始化">项目初始化</a></h3>
+<pre><code class="language-shell">cd program_dir
+
+# 创建go.mod
+go mod init github.com/program_name
+
+# 安装所有依赖
+go mod tidy
+
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>some learning materials
 Rust语言圣经(Rust Course) https://course.rs
 Rust语言中文社区 https://rustcc.cn</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="leetcode"><a class="header" href="#leetcode">Leetcode</a></h1>
-<p><a href="https://www.yuque.com/wwuxyu/leetcode%22">语雀📒</a></p>
+<p><a href="https://www.yuque.com/wwuxyu/leetcode">语雀📒</a>
+<a href="leetcode/">leecode高频</a></p>
 <p>专项训练</p>
 <ul>
 <li>二叉树</li>
@@ -949,6 +960,105 @@ Rust语言中文社区 https://rustcc.cn</p>
   }
   return nhead-&gt;next;
 }
+</code></pre>
+<p>UP古城算法
+经典考题(一) -- Calculator</p>
+<ul>
+<li>
+<ol start="224">
+<li>Basic Calculator</li>
+</ol>
+</li>
+<li>227</li>
+<li>772</li>
+</ul>
+<p>trips:</p>
+<ul>
+<li>
+<p>加减操作符，可以作为正负来表示，不用存储是什么运算了。</p>
+</li>
+<li>
+<p>记录上一次的操作符，如果是乘除就可以直接算了，因为其实每次是判断上一个符号(对于字符串来说)。
+好像为了避免if else出错，其实可以全写if</p>
+</li>
+<li>
+<p>数组划分成连续k段,每段求和,让最大的那一段值最小
+lastday</p>
+</li>
+<li>
+<p>排序算法过一下</p>
+</li>
+<li>
+<p>二分，整理下模版，以及如何check</p>
+</li>
+<li>
+<p>BFS和DFS模版搞一下   成语接龙</p>
+</li>
+<li>
+<p>单调栈和单调队列</p>
+</li>
+<li>
+<p>topK</p>
+</li>
+<li>
+<p>LRU</p>
+</li>
+<li>
+<p>旋转数组</p>
+</li>
+<li>
+<p>有个括号专题</p>
+</li>
+<li>
+<p>回文串专题，Trie也准备下板子</p>
+</li>
+<li>
+<p>dp的话有打家劫舍、找零钱</p>
+</li>
+<li>
+<ol start="1105">
+<li>填充书架</li>
+</ol>
+</li>
+</ul>
+<p>单词接龙</p>
+<pre><code class="language-c++">class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) {
+        unordered_set&lt;string&gt; dict(wordList.begin(), wordList.end());        
+        if (!dict.count(endWord)) return 0;
+        
+        queue&lt;string&gt; q;
+        q.push(beginWord);
+        
+        int l = beginWord.length();
+        int step = 0;
+        
+        while (!q.empty()) {
+            ++step;
+            for (int size = q.size(); size &gt; 0; size--) {                
+                string w = q.front();                
+                q.pop();
+                for (int i = 0; i &lt; l; i++) {                
+                    char ch = w[i];
+                    for (int j = 'a'; j &lt;= 'z'; j++) {
+                        w[i] = j;
+                        // Found the solution
+                        if (w == endWord) return step + 1;
+                        // Not in dict, skip it
+                        if (!dict.count(w)) continue;
+                        // Remove new word from dict
+                        dict.erase(w);
+                        // Add new word into queue
+                        q.push(w);                    
+                    }
+                    w[i] = ch;
+                }
+            }
+        }
+        return 0;
+    }
+};
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>各种语言、STL的API备忘录</p>
 <h3 id="vector"><a class="header" href="#vector">vector</a></h3>
@@ -976,7 +1086,7 @@ cout&lt;&lt;&quot;size:&quot;&lt;&lt;vecInt.size();         //0
 </code></pre>
 <p><a href="http://t.zoukankan.com/luyingfeng-p-3638286.html">ref</a></p>
 <h3 id="unordered_map"><a class="header" href="#unordered_map">unordered_map</a></h3>
-<p>遍历方式</p>
+<p><strong>遍历方式</strong></p>
 <ol>
 <li>值传递遍历</li>
 <li>引用传递遍历</li>
@@ -1017,11 +1127,43 @@ for(auto&amp; [k,_] : mp){
     cout&lt;&lt;k&lt;&lt;endl;
 }
 </code></pre>
+<p><strong>查找</strong></p>
 <h3 id="概念剖析"><a class="header" href="#概念剖析">概念剖析</a></h3>
 <ul>
 <li>子数组 ｜ 子串：要求连续，子数组不能为空，子串可以。</li>
 <li>子序列：可以不连续，在原序列中找出一部分组成的序列。</li>
 </ul>
+<h3 id="字符串"><a class="header" href="#字符串">字符串</a></h3>
+<p>C函数库
+判断字符</p>
+<pre><code class="language-c++">include&lt;ctype.h&gt;
+
+int isdigit(char c);
+
+</code></pre>
+<p>stringstream</p>
+<p>switch case</p>
+<pre><code class="language-c++">switch (status) { 
+    case 1: 
+        // todo1 
+        break; 
+    case 2: 
+        // todo2 
+        break; 
+    case 3: 
+        // todo3 
+        break; 
+    default: 
+        //todo 
+} 
+
+</code></pre>
+<p>accumulate，numeric库中的一个函数，主要用来对指定范围内元素求和。</p>
+<pre><code class="language-c++">// 第四个非必需，默认为累加操作。
+accumulate(begin_, end_, 初值， 自定义操作函数)
+</code></pre>
+<p><a href="https://blog.csdn.net/VariatioZbw/article/details/125257536">ref</a></p>
+<p>优先队列</p>
 <div style="break-before: page; page-break-before: always;"></div><ol start="1991">
 <li>找到数组的中间位置</li>
 </ol>
@@ -1044,14 +1186,159 @@ for(auto&amp; [k,_] : mp){
         }
 
 </code></pre>
+<h4 id="209-长度最小的子数组"><a class="header" href="#209-长度最小的子数组">209. 长度最小的子数组</a></h4>
+<p>看错题了，题目要求大于等于即可。一开始写成等于
+两种解法</p>
+<ul>
+<li>O(n)，双指针</li>
+<li>O(nlogn)，二分答案。</li>
+</ul>
+<pre><code class="language-c++">class Solution {
+public:
+    int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) {
+        int l = 0, r = 0, sum = nums[r], ans = INT_MAX;
+        while (r &lt; nums.size()) {
+            if (sum &lt; target) {
+                r++;
+                if (r &lt; nums.size())
+                    sum += nums[r];
+            }
+            else {
+                ans = min(ans, r-l+1);
+                sum -= nums[l];
+                l++;
+            }
+        }
+        return ans == INT_MAX ? 0 : ans;
+    }
+};
+
+// 二分法
+class Solution {
+public:
+    bool check(int d, vector&lt;int&gt;&amp; nums, int target) {
+        int sum = 0;
+        for (int i=0;i&lt;d;i++) {
+            sum += nums[i];
+        }
+        if (sum &gt;= target) return true;
+        for (int i=d;i&lt;nums.size();i++) {
+            sum = sum - nums[i-d] + nums[i];
+            if (sum &gt;= target) return true;
+        }
+        return false;
+    }
+    int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) {
+        int l = 0, r = nums.size(), mid;
+        while (l &lt; r) {
+            mid = (l+r) / 2;
+            if (check(mid, nums, target)) {
+                r = mid;
+            }
+            else {
+                l = mid + 1;
+            }
+        }
+        int n = nums.size();
+        if (l != n || (l == r &amp;&amp; accumulate(nums.begin(), nums.end(), 0) &gt;= target)) {
+            return l;
+        }
+        return 0;
+    }
+};
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>链表</p>
 <ul>
 <li>
 <ol start="82">
-<li>删除排序链表中的重复元素 II</li>
+<li>删除排序链表中的重复元素II
+两点 next也不能为空，pre不着急赋值。</li>
+</ol>
+</li>
+<li>
+<ol start="83">
+<li>删除排序链表中的重复元素</li>
+</ol>
+</li>
+<li>
+<ol start="328">
+<li>奇偶链表 (两个奇偶头即可)</li>
 </ol>
 </li>
 </ul>
+<p>LRU</p>
+<pre><code class="language-c++">class LRUCache {
+private:
+    struct ListNode {
+        int val;
+        int key; //!!!!forget
+        ListNode *pre, *next;
+        ListNode() : val(0), key(0), pre(nullptr), next(nullptr){}
+        ListNode(int _k, int _v):val(_v), key(_k), pre(nullptr), next(nullptr){}
+    };
+    unordered_map&lt;int, ListNode*&gt; mp;
+    ListNode *head, *tail;
+    int size, capacity;
+
+public:
+    LRUCache(int _capacity) : capacity(_capacity), size(0) {
+        head = new ListNode();
+        tail = new ListNode();
+        head-&gt;next = tail;
+        tail-&gt;pre = head;
+    }
+    
+    int get(int key) {
+        if (mp.count(key)) {
+            remove_node(mp[key]);
+            add_to_head(mp[key]);
+            return mp[key]-&gt;val;
+        }
+        return -1;
+    }
+    
+    void put(int key, int value) {
+        if (mp.count(key)) {
+            mp[key]-&gt;val = value;
+            remove_node(mp[key]);
+            add_to_head(mp[key]);
+        }
+        else {
+            ListNode* p = new ListNode(key, value);
+            mp[key] = p;
+            add_to_head(mp[key]);
+            size++;
+            if (size &gt; capacity) { //删除最久未使用，即链表尾部元素。
+                ListNode* tmp = remove_tail();
+                mp.erase(tmp-&gt;key);
+                size--;
+                delete tmp;
+            }
+        }
+    }
+    void add_to_head(ListNode* node) {
+        node-&gt;pre = head;
+        node-&gt;next = head-&gt;next;
+        head-&gt;next-&gt;pre = node; //forget
+        head-&gt;next = node;
+    }
+    void remove_node(ListNode* node) {
+        node-&gt;pre-&gt;next = node-&gt;next;
+        node-&gt;next-&gt;pre = node-&gt;pre;
+    }
+    void move_to_head(ListNode* node) {
+        remove_node(node);
+        add_to_head(node);
+    }
+    ListNode* remove_tail() {
+        ListNode* tmp = tail-&gt;pre;
+        remove_node(tmp);
+        return tmp;
+    }
+
+};
+
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>树的遍历</p>
 <ul>
 <li>先序遍历 Inorder</li>
@@ -1125,7 +1412,7 @@ Advanced：</p>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="动态规划"><a class="header" href="#动态规划">动态规划</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="字符串"><a class="header" href="#字符串">字符串</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="字符串-1"><a class="header" href="#字符串-1">字符串</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="图论"><a class="header" href="#图论">图论</a></h1>
 
                     </main>

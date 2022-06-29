@@ -160,7 +160,7 @@ cout&lt;&lt;&quot;size:&quot;&lt;&lt;vecInt.size();         //0
 </code></pre>
 <p><a href="http://t.zoukankan.com/luyingfeng-p-3638286.html">ref</a></p>
 <h3 id="unordered_map"><a class="header" href="#unordered_map">unordered_map</a></h3>
-<p>遍历方式</p>
+<p><strong>遍历方式</strong></p>
 <ol>
 <li>值传递遍历</li>
 <li>引用传递遍历</li>
@@ -201,11 +201,43 @@ for(auto&amp; [k,_] : mp){
     cout&lt;&lt;k&lt;&lt;endl;
 }
 </code></pre>
+<p><strong>查找</strong></p>
 <h3 id="概念剖析"><a class="header" href="#概念剖析">概念剖析</a></h3>
 <ul>
 <li>子数组 ｜ 子串：要求连续，子数组不能为空，子串可以。</li>
 <li>子序列：可以不连续，在原序列中找出一部分组成的序列。</li>
 </ul>
+<h3 id="字符串"><a class="header" href="#字符串">字符串</a></h3>
+<p>C函数库
+判断字符</p>
+<pre><code class="language-c++">include&lt;ctype.h&gt;
+
+int isdigit(char c);
+
+</code></pre>
+<p>stringstream</p>
+<p>switch case</p>
+<pre><code class="language-c++">switch (status) { 
+    case 1: 
+        // todo1 
+        break; 
+    case 2: 
+        // todo2 
+        break; 
+    case 3: 
+        // todo3 
+        break; 
+    default: 
+        //todo 
+} 
+
+</code></pre>
+<p>accumulate，numeric库中的一个函数，主要用来对指定范围内元素求和。</p>
+<pre><code class="language-c++">// 第四个非必需，默认为累加操作。
+accumulate(begin_, end_, 初值， 自定义操作函数)
+</code></pre>
+<p><a href="https://blog.csdn.net/VariatioZbw/article/details/125257536">ref</a></p>
+<p>优先队列</p>
 
                     </main>
 

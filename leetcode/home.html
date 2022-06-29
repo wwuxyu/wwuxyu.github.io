@@ -135,7 +135,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="leetcode"><a class="header" href="#leetcode">Leetcode</a></h1>
-<p><a href="https://www.yuque.com/wwuxyu/leetcode%22">语雀📒</a></p>
+<p><a href="https://www.yuque.com/wwuxyu/leetcode">语雀📒</a>
+<a href="">leecode高频</a></p>
 <p>专项训练</p>
 <ul>
 <li>二叉树</li>
@@ -158,6 +159,105 @@
   }
   return nhead-&gt;next;
 }
+</code></pre>
+<p>UP古城算法
+经典考题(一) -- Calculator</p>
+<ul>
+<li>
+<ol start="224">
+<li>Basic Calculator</li>
+</ol>
+</li>
+<li>227</li>
+<li>772</li>
+</ul>
+<p>trips:</p>
+<ul>
+<li>
+<p>加减操作符，可以作为正负来表示，不用存储是什么运算了。</p>
+</li>
+<li>
+<p>记录上一次的操作符，如果是乘除就可以直接算了，因为其实每次是判断上一个符号(对于字符串来说)。
+好像为了避免if else出错，其实可以全写if</p>
+</li>
+<li>
+<p>数组划分成连续k段,每段求和,让最大的那一段值最小
+lastday</p>
+</li>
+<li>
+<p>排序算法过一下</p>
+</li>
+<li>
+<p>二分，整理下模版，以及如何check</p>
+</li>
+<li>
+<p>BFS和DFS模版搞一下   成语接龙</p>
+</li>
+<li>
+<p>单调栈和单调队列</p>
+</li>
+<li>
+<p>topK</p>
+</li>
+<li>
+<p>LRU</p>
+</li>
+<li>
+<p>旋转数组</p>
+</li>
+<li>
+<p>有个括号专题</p>
+</li>
+<li>
+<p>回文串专题，Trie也准备下板子</p>
+</li>
+<li>
+<p>dp的话有打家劫舍、找零钱</p>
+</li>
+<li>
+<ol start="1105">
+<li>填充书架</li>
+</ol>
+</li>
+</ul>
+<p>单词接龙</p>
+<pre><code class="language-c++">class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) {
+        unordered_set&lt;string&gt; dict(wordList.begin(), wordList.end());        
+        if (!dict.count(endWord)) return 0;
+        
+        queue&lt;string&gt; q;
+        q.push(beginWord);
+        
+        int l = beginWord.length();
+        int step = 0;
+        
+        while (!q.empty()) {
+            ++step;
+            for (int size = q.size(); size &gt; 0; size--) {                
+                string w = q.front();                
+                q.pop();
+                for (int i = 0; i &lt; l; i++) {                
+                    char ch = w[i];
+                    for (int j = 'a'; j &lt;= 'z'; j++) {
+                        w[i] = j;
+                        // Found the solution
+                        if (w == endWord) return step + 1;
+                        // Not in dict, skip it
+                        if (!dict.count(w)) continue;
+                        // Remove new word from dict
+                        dict.erase(w);
+                        // Add new word into queue
+                        q.push(w);                    
+                    }
+                    w[i] = ch;
+                }
+            }
+        }
+        return 0;
+    }
+};
 </code></pre>
 
                     </main>
