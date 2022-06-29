@@ -259,6 +259,81 @@ public:
     }
 };
 </code></pre>
+<p>126</p>
+<pre><code class="language-c++">class Solution {
+public:
+    vector&lt;vector&lt;string&gt;&gt; findLadders(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) {
+        vector&lt;vector&lt;string&gt;&gt; ans;
+        unordered_set&lt;string&gt; dict(wordList.begin(), wordList.end());
+        if (!dict.count(endWord)) return ans;
+        dict.erase(endWord);
+        dict.erase(beginWord);
+
+        unordered_map&lt;string, int&gt; steps{{beginWord, 1}};
+        unordered_map&lt;string, vector&lt;string&gt;&gt; parents;
+        queue&lt;string&gt; q;
+        q.push(beginWord);
+
+        const int len = beginWord.size();
+        int step = 0;
+        bool found = false;
+        while (!q.empty() &amp;&amp; !found) {
+            ++step;
+            for (int size=q.size();size&gt;0;size--) {
+                const string p = q.front(); q.pop();
+                string cur = p;
+                for (int i=0;i&lt;len;i++) {
+                    const char ch = cur[i];
+                    for (int j='a';j&lt;='z';j++) {
+                        if (j == ch) continue;
+                        cur[i] = j;
+                        if (cur == endWord) {
+                            parents[cur].push_back(p);                         
+                            found = true;
+                        }
+                        else {
+                            // 同一层的step
+                            if (steps.count(cur) &amp;&amp; step +1 == steps.at(cur)) {
+                                parents[cur].push_back(p);
+                            }
+                        }
+
+                        // 如果该单词不在字典里，即跳过，若在则从字典中删除。
+                        if (!dict.count(cur)) continue;
+                        dict.erase(cur);
+                        q.push(cur);
+                        steps[cur] = steps.at(p) + 1;
+                        parents[cur].push_back(p);
+                    }
+                    cur[i] = ch;
+                }
+            }
+        }
+
+        if (found) {
+            vector&lt;string&gt; path{endWord};
+            dfs(endWord, beginWord, parents, path, ans);
+        }
+        return ans;
+    }
+
+    void dfs(const string&amp; word,
+             const string&amp; beginWord,
+             const unordered_map&lt;string, vector&lt;string&gt;&gt;&amp; parents,
+             vector&lt;string&gt;&amp; path,
+             vector&lt;vector&lt;string&gt;&gt;&amp; ans) {
+                if (word == beginWord) {
+                    ans.push_back(vector&lt;string&gt;(path.rbegin(), path.rend()));
+                    return;
+                }
+                for (const auto&amp; it : parents.at(word)) {
+                    path.push_back(it);
+                    dfs(it, beginWord, parents, path, ans);
+                    path.pop_back();
+                }
+            }
+};
+</code></pre>
 
                     </main>
 
